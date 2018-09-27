@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Place.css';
 
-const Place = ({ place }) => {
+const Place = ({ place, action }) => {
   return (
-    <div className={styles.root}>
+    <div className={styles.root} onClick={action}>
       <div className={styles.name}>{ place.name || 'Where for lunch?' }</div>
       <div className={styles.box}>
         <div>{ place.address }</div>
@@ -27,6 +27,7 @@ const Place = ({ place }) => {
 
 Place.propTypes = {
   place: PropTypes.object,
+  action: PropTypes.func,
 };
 
 export default Place;
