@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import StoreOpen from 'components/StoreOpen/StoreOpen';
 import styles from './Place.css';
 
 const Place = ({ place, action }) => {
   return (
     <div className={styles.root} onClick={action}>
-      <div className={styles.name}>{ place.name || 'Where for lunch?' }</div>
+      <div className={styles.name}>{ place.name || 'Where for lunch?' } <StoreOpen isClosed={place.is_closed}/></div>
       <div className={styles.box}>
         <div>{ place.address }</div>
         <div>{ place.phone }</div>

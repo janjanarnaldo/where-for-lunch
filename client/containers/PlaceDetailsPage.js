@@ -6,12 +6,23 @@ import placeActions from 'actions/placeActions';
 import Place from 'components/Place/Place';
 
 class PlaceDetailsPage extends Component {
+  componentDidMount = () => {
+    const { place } = this.props;
+    const { id } = place;
+    if (!id) this.props.history.replace('/');
+
+    this.props.fetchPlaceDetails(id);
+  }
+
   render() {
     const { place } = this.props;
 
     return (
       <div className="placeDetailsPageWrapper">
         <Place place={place} />
+        <div>
+          <img className="mainImage" src={place.image_url} />
+        </div>
       </div>
     );
   }
@@ -23,12 +34,13 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch =>
   bindActionCreators({
-    fetchPlace: placeActions.fetchPlace,
+    fetchPlaceDetails: placeActions.fetchPlaceDetails,
   }, dispatch);
 
 PlaceDetailsPage.propTypes = {
   place: PropTypes.object,
-  fetchPlace: PropTypes.func,
+  fetchPlaceDetails: PropTypes.func,
+  history: PropTypes.object,
 };
 export default connect(
   mapStateToProps,

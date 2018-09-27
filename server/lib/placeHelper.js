@@ -1,5 +1,4 @@
 export function toSearchPlacesParams(params) {
-  console.log(params.categories);
   const result = {
     term: 'food',
     latitude: params.latitude,
@@ -24,6 +23,28 @@ export function fromSearchPlacesParams(params) {
     address: params.location.display_address.join(', '),
     categories: params.categories ? params.categories.map(c => c.title) : null,
     reviewCount: params.review_count,
+  };
+  return result;
+}
+
+export function fromPlaceDetails(params = {}) {
+  const result = {
+    id: params.id,
+    alias: params.alias,
+    name: params.name,
+    image_url: params.image_url,
+    is_claimed: params.is_claimed,
+    is_closed: params.is_closed,
+    url: params.url,
+    phone: params.phone,
+    display_phone: params.display_phone,
+    review_count: params.review_count,
+    categories: params.categories ? params.categories.map(c => c.title) : null,
+    rating: params.rating,
+    address: params.location && params.location.display_address.join(', '),
+    coordinates: params.coordinates,
+    photos: params.photos,
+    hours: params.hours,
   };
   return result;
 }
