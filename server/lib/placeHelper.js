@@ -1,4 +1,5 @@
 export function toSearchPlacesParams(params) {
+  console.log(params.categories);
   const result = {
     term: 'food',
     latitude: params.latitude,
@@ -6,6 +7,7 @@ export function toSearchPlacesParams(params) {
     radius: params.radius,
     limit: 50,
     open_now: true,
+    categories: params.categories,
   };
   return result;
 }

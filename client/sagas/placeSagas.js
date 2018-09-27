@@ -4,13 +4,14 @@ import { getRandom } from 'lib/utils';
 import placeActions from 'actions/placeActions';
 import {
   FETCH_PLACES,
+  SET_DETAILS,
 } from 'actions/placeActionTypes';
 
 function* fetchPlace(action) {
   try {
     const places = yield call(getPlaceIds, action.payload);
     const randomPlace = getRandom(places);
-    yield put(placeActions.setDetails(randomPlace));
+    yield put(placeActions[SET_DETAILS](randomPlace));
   } catch (e) {
     console.log('error! ', e);
   }
