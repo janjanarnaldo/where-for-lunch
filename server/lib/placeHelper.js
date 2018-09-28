@@ -6,6 +6,7 @@ export function toSearchPlacesParams(params) {
     radius: params.radius,
     limit: 50,
     open_now: true,
+    categories: params.categories || undefined,
   };
   return result;
 }

@@ -40,10 +40,14 @@ class HomePage extends Component {
       <div className="homePageWrapper">
         <Place place={place} />
         <div className="searchWrapper">
+<<<<<<< ours
+          <Condition condition={condition} action={this.handleOnConditionChange}/>
+=======
           <div>
             <RadiusCondition condition={condition} action={this.handleOnRadiusConditionChange}/>
             <CategoriesCondition condition={condition} action={this.handleOnCategoriesConditionChange}/>
           </div>
+>>>>>>> theirs
           <Button onClick={this.handleOnClick} theme="homepageClick" isDisableButton={isDisableButton}/>
         </div>
       </div>
