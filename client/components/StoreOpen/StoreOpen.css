@@ -1,0 +1,10 @@
+@import '../../styles/variables.css';
+
+.root {
+  font-weight: $bold;
+  color: $green;
+
+  &.isClosed {
+    color: $well-read;
+  }
+}

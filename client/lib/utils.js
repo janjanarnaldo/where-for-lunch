@@ -4,6 +4,6 @@ export function getRandom(list) {
   return rand;
 }
 
-export function formatCategoriesStr(categories = {}) {
+export function formatCategoriesStr(categories) {
   return categories.filter(({ isChecked }) => isChecked).map(o => o.id).join(',');
 }
