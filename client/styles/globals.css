@@ -21,6 +21,13 @@
   align-items: center;
 }
 
+:global(.mainImage) {
+  width: 30rem;
+  height: 30rem;
+  display: flex;
+  margin: auto;
+}
+
 body {
   background: url("assets/index.jpg") no-repeat center center fixed;
   background-size: cover;

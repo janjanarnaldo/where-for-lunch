@@ -3,3 +3,7 @@ export function getRandom(list) {
   const rand = list[Math.floor(Math.random() * list.length)];
   return rand;
 }
+
+export function formatCategoriesStr(categories) {
+  return categories.filter(({ isChecked }) => isChecked).map(o => o.id).join(',');
+}

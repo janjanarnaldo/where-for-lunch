@@ -1,9 +1,9 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Input from 'components/Input/Input';
-import styles from './Condition.css';
+import styles from './RadiusCondition.css';
 
-export default class Condition extends PureComponent {
+export default class RadiusCondition extends PureComponent {
   static propTypes = {
     condition: PropTypes.object,
     action: PropTypes.func,
