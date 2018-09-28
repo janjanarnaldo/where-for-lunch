@@ -9,6 +9,11 @@ import Place from 'components/Place/Place';
 import Condition from 'components/Condition/Condition';
 
 class HomePage extends Component {
+  isDisableButton = (condition) => {
+    const { latitude, longitude } = condition;
+    return typeof latitude === 'undefined' && typeof longitude === 'undefined';
+  }
+
   handleOnClick = () => {
     this.props.fetchPlaces(this.props.condition);
   }
@@ -18,12 +23,14 @@ class HomePage extends Component {
   }
   render() {
     const { condition, place } = this.props;
+    const isDisableButton = this.isDisableButton(condition);
+
     return (
       <div className="homePageWrapper">
         <Place place={place} />
         <div className="searchWrapper">
           <Condition condition={condition} action={this.handleOnConditionChange}/>
-          <Button onClick={this.handleOnClick} theme="homepageClick" />
+          <Button onClick={this.handleOnClick} theme="homepageClick" isDisableButton={isDisableButton}/>
         </div>
       </div>
     );

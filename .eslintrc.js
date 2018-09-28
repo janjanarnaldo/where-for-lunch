@@ -416,10 +416,7 @@ module.exports = {
     "applyDefaultPatterns": true
    }
   ],
-  "linebreak-style": [
-   "error",
-   "unix"
-  ],
+  "linebreak-style": 0,
   "lines-around-comment": "off",
   "lines-around-directive": [
    "error",
