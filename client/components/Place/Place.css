@@ -1,7 +1,7 @@
 @import 'styles/variables.css';
 
 .name {
-  margin-top: calc($base-spacing * 10);
+  margin-top: calc($base-spacing * 2);
   min-height: 2rem;
   font-size: 2rem;
   margin-bottom: calc($base-spacing * 2);
