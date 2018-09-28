@@ -13,4 +13,9 @@
     margin-left: calc($base-spacing * 2);
     box-shadow: $button-shadow;
   }
+
+  &[disabled] {
+    background-color: grey;
+    cursor: not-allowed;
+  }
 }
