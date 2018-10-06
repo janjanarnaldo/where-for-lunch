@@ -11,8 +11,12 @@ import RadiusCondition from 'components/RadiusCondition/RadiusCondition';
 import CategoriesCondition from 'components/CategoriesCondition/CategoriesCondition';
 
 class HomePage extends Component {
-  isDisableButton = ({ latitude, longitude }) => {
-    return typeof latitude === 'undefined' && typeof longitude === 'undefined';
+  isDisableButton = () => {
+    const { condition, place } = this.props;
+    const { latitude, longitude } = condition;
+    const { isFetching } = place;
+
+    return (typeof latitude === 'undefined' && typeof longitude === 'undefined') || isFetching;
   }
 
   handleOnPlaceSearch = () => {
@@ -48,7 +52,7 @@ class HomePage extends Component {
             <RadiusCondition condition={condition} action={this.handleOnRadiusConditionChange}/>
             <CategoriesCondition condition={condition} action={this.handleOnCategoriesConditionChange}/>
           </div>
-          <Button onClick={this.handleOnPlaceSearch} theme="homepageClick" isDisableButton={this.isDisableButton(condition)}/>
+          <Button onClick={this.handleOnPlaceSearch} theme="homepageClick" isDisableButton={this.isDisableButton()}/>
         </div>
         <Place place={place} action={this.handleOnPlaceClick} />
       </div>

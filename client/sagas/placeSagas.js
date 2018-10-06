@@ -6,13 +6,16 @@ import {
   FETCH_PLACES,
   FETCH_PLACE_DETAILS,
   SET_DETAILS,
+  SET_FETCHING,
 } from 'actions/placeActionTypes';
 
 function* fetchPlace(action) {
   try {
+    yield put(placeActions[SET_FETCHING](true));
     const places = yield call(getPlaceIds, action.payload);
     const randomPlace = getRandom(places);
     yield put(placeActions[SET_DETAILS](randomPlace));
+    yield put(placeActions[SET_FETCHING](false));
   } catch (e) {
     console.log('error! ', e);
   }
